@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn84yi4ftyy4l"]
+
+[ext_resource type="PackedScene" uid="uid://bi0mewcjm2kxg" path="res://Scenes/Player.tscn" id="1_gad1n"]
+
+[node name="Bakery" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_gad1n")]
+
+[node name="Enemies" type="Node2D" parent="."]
