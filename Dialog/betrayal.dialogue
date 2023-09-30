@@ -38,6 +38,7 @@ Carabella: So, what will it be, Sicario? Will you join my little coup d'état?
 	Carabella: I will not forget this, Sicario. You will be well compensated.
 	Narrator: All of you hop into cars, and soon you are cruising to the DiSpagna mansion, murder in your minds.
 	set State.joined_carabella = true
+	# TODO: To mansion, with Carabella
 	=> END
 - Stay loyal to the Don [State.killed_jean_pierre == false]
 	Narrator: This wasn't in the contract. And you never. ever. break a contract.
@@ -74,7 +75,6 @@ Narrator: With Carabella's goons in hot pursuit, you throw yourself into the all
 	Narrator: There were more of them, but they must have gone ahead with Carabella.
 	=> leaving
 	# TODO:
-=> END
 
 ~ leaving
 Narrator: You slow down. Pausing to think.
@@ -86,10 +86,17 @@ Narrator: Undoubtedly, she would run this town with an iron fist once she was in
 if State.killed_jean_pierre == false
 	Narrator: There was Jean-Pierre and his brother to consider too. Did you care what became of the crazy bakers?
 - Head to the mansion
-	# TODO:
-	
+	Narrator: You couldn't just leave things as they were.
+	Narrator: You hadn't even gotten paid yet.
+	Narrator: With determination in your step, you straighten your suit and started the trek ttowards Don DiSpagna's mansion.
+	Narrator: You would be late for the party, but there were a few choice words you had for the Italians.
+	# To mansion, without Carabella
+	=> END
 - Leave Monaco behind
-
-	# TODO:
-
+	Narrator: Things were getting too hot here. Though it would mean burning a few bridges, this was hardly the only gang conflict in the world where a man of your talents could profit.
+	Narrator: Let the Italians, the French and whoever else vied for power here duke it out with each other. Hopefully, when the winner rose from the ashes, they'd have forgotten about you.
+	Narrator: Smelling of bread and failure, you return to the Monaco International Airport to book your home flight.
+	Narrator: By the time the plane left the ground, you could see the fires spreading.
+	# TODO: End screen
+	set State.ran_away = true
 => END
