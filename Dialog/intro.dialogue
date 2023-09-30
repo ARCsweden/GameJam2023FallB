@@ -21,6 +21,70 @@ Narrator: She gestures for you to take the passenger seat while she stubs out he
 Narrator: No trouble assail you, and arrive at a large mansion with a view of most of the city. The car passes through the gates, the faceless men in suits standing guard closing them behind you.
 Woman: Follow.
 Narrator: Your watchful eyes catch a number of barely covered up bullet holes in the walls as you walk behind her up a large set of stairs.
-Narrator: Perhaps a testament to the violent nature of the acquisition from the previous owner.
+Narrator: Perhaps a testament to the violent nature of the acquisition from the previous owner. Or some kind of Italian fashion statement. These guys seem to be all about style.
+Narrator: Before long, you are inside the Don's office. The old man is cut from a different time.
+Narrator: Cosa Nostra.
+Narrator: Don Guiseppe DiSpagna regards you with piercing eyes, behind steepled fingers.
+- Professional
+	Narrator: You give the man a curt nod, acknowledging but not deferrential. Here, your reputation precedes you.
+	Narrator: Eventually, the Don speaks, breaking the silence.
+- Guarded
+	set State.italian_ally = State.italian_ally - 1
+	Narrator: You are careful to not let your feelings show as you endure that regard.
+	Narrator: This isn't the first time you've ran into the Italians, and not always on good terms.
+	Narrator: That said, they pay well, and you have your own reasons for accepting this job.
+- Familiar
+	set State.italian_ally = State.italian_ally + 1
+	Narrator: This is far from the first time you've met. Back in the old country, the Don frequently requested your services.
+	Narrator: You bow, eliciting a slight smile from the old man.
+	Don DiSpagna: Ever so formal, friend. Have a seat.
+Don DiSpagna: You know I would not call someone of your... caliber, unless it was important.
+Don DiSpagna: Our efforts here have taken a sour turn with some rowdy locals. We have need to... see them removed.
+Narrator: You raise an eyebrow. The great gang wars have raged for well over a decade now, and the Italians have always been strong. Who could offer them such trouble in a small town like this?
+Don DiSpagna: The French.
+Narrator: He says it with some distaste, as if biting into a particularly sour olive.
+Don DiSpagna: A clan of bakers. Ruffians who refuse to accept our offers of protection.
+Don DiSpagna: The brothers Jean-Pierre and Jean-Luc Boulanger. They run the Crusty Croissant down Rue de Millo.
+Don DiSpagna: Deal with the older one and the younger will fold... as long as you don't make it obvious who was behind it. We are understood?
+Narrator: You nod and rise. There is work to be done.
+Narrator: Outside, the woman from before waits for you, her expression unreadable.
+Woman: I'm going with you on the job. You'll do the deed, but I will be keeping an eye on you. Just because my father trusts you doesn't mean I do.
+Narrator: You smile inwardly. Yes Ma'am.
+Woman: It's Carabella DiSpagna, Sicario.
+
+Narrator: Some time later, the two of you are observing the Crusty Croissant from afar. The sign looks like it belongs to a previous era, perhaps twice removed.
+Carabella: I take it you came prepared? A tommy-gun is perhaps a bit too obvious, so the means will have to be up to you.
+Narrator: You give her a carefully neutral face.
+Narrator: Ever since a massive swatch of terrorist attacks and gang conflicts raged across the continent a few years back, airport security had become even more draconean than it was before.
+Narrator: People of your presuasion had been forced to... adapt. You checked your pocket to confirm. Inside was...
+- Sandwich
+	set State.weapon = State.Weapon.Sandwich
+	Narrator: ...a club sandwich, carefully wrapped in plastic.
+	Narrator: To the unsuspecting TSA agent, it looks like nothing more than lunch, but this particular meal had been meticulously prepared in a bio-lab to cause instant death upon ingestion. 
+- Ballpoint pen
+	set State.weapon = State.Weapon.Pen
+	Narrator: ...a set of common ballpoint pens. At least to the naked eye, which didn't reveal the damascus-crafted tip, sharp enough to pierce kevlar if thrown.
+- Nothing
+	set State.weapon = State.Weapon.Nothing
+	Narrator: ...nothing. You prefer to acquire weapons on site for a job. In hindsight, this particular approach may be ill suited for a Bakery. Ah well.
+Narrator: You nod. This is fine.
+Carabella: I'll leave you to it then. We'll meet behind the bakery once it's done.
+Narrator: You study the front as Carabella drives off. There appears to be a slim frenchman in a stereotypical striped shirt behind the counter, his eyes barely containing his internal rage.
+Narrator: Not Jean-Pierre.
+- Enter the front
+	set State.entry_point = State.EntryPoint.Front
+	Narrator: No blood has been shed yet. Surely entering as a customer will work?
+	Narrator: You step inside, immediately falling inside the fevered gaze of the cashier.
+	Frenchman: Chi sei? Cosa vuoi qui?!
+	- Morte
+		Narrator: The frenchman's eyes widen as he reaches for a hardened battle baguette and a bottle of red wine.
+		Frenchman: Vieni da me fratello! En garde!
+	- Pane
+		Narrator: The frenchman's eyes glaze over as he reaches for a hardened battle baguette and a bottle of red wine.
+		Frenchman: Pane lo è! En garde!
+- Enter the back door
+	set State.entry_point = State.EntryPoint.Back
+	Narrator: Figuring that it wouldn't do to draw attention already, you slide up the alley next to the bakery.
+	Narrator: The back door is slightly ajar. Murmured voices can be heard in what is presumably French.
 
 => END
