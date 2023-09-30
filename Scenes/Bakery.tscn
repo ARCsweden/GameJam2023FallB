@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://dn84yi4ftyy4l"]
 
-[ext_resource type="Texture2D" uid="uid://cujpx602y3k0t" path="res://Asset/bakery.webp" id="1_54qsi"]
+[ext_resource type="Texture2D" uid="uid://cqydixp5jp2pw" path="res://Asset/bakery.webp" id="1_54qsi"]
 [ext_resource type="PackedScene" uid="uid://bi0mewcjm2kxg" path="res://Scenes/Player.tscn" id="1_gad1n"]
 [ext_resource type="PackedScene" uid="uid://cnlvshkf4pjh8" path="res://Scenes/MeleeEnemy.tscn" id="3_l6m37"]
 
@@ -70,12 +70,15 @@ size = Vector2(111.5, 111)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_54qsi")
 
-[node name="Player" parent="." instance=ExtResource("1_gad1n")]
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="YSort" instance=ExtResource("1_gad1n")]
 position = Vector2(4, 731)
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="YSort"]
 
-[node name="MeleeEnemy" parent="Enemies" instance=ExtResource("3_l6m37")]
+[node name="MeleeEnemy" parent="YSort/Enemies" instance=ExtResource("3_l6m37")]
 position = Vector2(-549, 170)
 
 [node name="LevelCollision" type="StaticBody2D" parent="."]

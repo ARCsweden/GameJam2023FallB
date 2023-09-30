@@ -15,7 +15,7 @@ var equipped_baguette = preload("res://Asset/baguette.png")
 
 func ready():
 	current_health = max_health
-func _process(delta):
+func _process(_delta):
 	#print(State.weapon) #0=nothing #3 is baguette
 	#if State.weapon==0: #free hands
 		#pass
@@ -43,7 +43,7 @@ func get_input():
 			$AttackTimer.start()
 			_attack()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	anim_player.play("idle")
 	move_and_slide()

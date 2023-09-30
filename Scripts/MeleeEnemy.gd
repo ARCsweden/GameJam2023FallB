@@ -5,10 +5,10 @@ var max_health = 1
 var current_health = max_health
 var able_to_attack = true
 
-@onready var sprite = $Sprite2D
+@onready var sprite = $Sprite
 @onready var anim_player = $AnimationPlayer
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# MeleeEnemy constantly moves towards the Player and attempts to attack them
 	var player = get_node("../../Player")
 	var direction = player.position - position
