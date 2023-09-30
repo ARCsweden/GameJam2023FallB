@@ -7,8 +7,8 @@ var able_to_attack = true
 
 func _physics_process(delta):
 	# MeleeEnemy constantly moves towards the Player and attempts to attack them
-	var Player = get_node("../../CharacterBody2D")
-	var direction = Player.position - position
+	var player = get_node("../../Player")
+	var direction = player.position - position
 	velocity = direction.normalized() * SPEED
 	
 	if direction.length() < 200:  # Stops if near player and attacks
@@ -21,8 +21,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _attack():
-	var Player = get_node("../../Player")
-	Player.damaged()
+	var player = get_node("../../Player")
+	player.damaged()
 
 func _on_timer_timeout():
 	able_to_attack = true
