@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnlvshkf4pjh8"]
+
+[ext_resource type="Texture2D" uid="uid://bkxf23cd0iqr6" path="res://icon.svg" id="1_clj4i"]
+[ext_resource type="Script" path="res://Scripts/MeleeEnemy.gd" id="1_vvd4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j661k"]
+size = Vector2(137, 133)
+
+[node name="MeleeEnemy" type="CharacterBody2D"]
+script = ExtResource("1_vvd4x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_clj4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_j661k")
