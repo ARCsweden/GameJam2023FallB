@@ -23,4 +23,4 @@ var entry_point
 
 # TODO: Set when killing one of the staff in any way
 var bakery_killed_staff = false
-
+var killed_jean_pierre = false

@@ -11,21 +11,21 @@ if State.weapon == State.Weapon.Baguette and State.bakery_killed_staff
 	set State.french_ally = -1
 	=> END
 
-- Don DiSpagna ti manda i suoi saluti.
+- Don DiSpagna ti manda i suoi saluti (Don DiSpagna sends his regards)
 	# Don DiSpagna sends his regards
 	Narrator: The baker grits his teeth.
 	Jean-Pierre: You are not welcome here!
 	set State.french_ally = -1
 	# Should fight Jean-Pierre here
 	=> END
-- Aspetta! Sono venuto qui per parlare.
+- Attendez! Je suis venu ici pour parler (Wait! I want to talk)
 	# Wait! I came here to talk
 	Narrator: Jean-Pierre's eyes narrow, but he stays his hand.
-	Jean-Pierre: Parley? Just who are you?
+	Jean-Pierre: Talk? Just who are you?
 
 Narrator: You think on how you want to approach this.
 
-- Offer Sandwich [State.weapon == State.Weapon.Sandwich]
+- Offer sandwich [State.weapon == State.Weapon.Sandwich]
 	Narrator: You hold up the plastic bag with the sandwich in.
 	Jean-Pierre: Hmm... a man of culture I see. Very well, I will break bread with you.
 	Narrator: The two of you exchange gifts of food, his hardened battle-baguette only slightly less lethal than your poisoned club. Jean-Pierre digs in.
@@ -33,17 +33,41 @@ Narrator: You think on how you want to approach this.
 	Narrator: Mustard gas.
 	Jean-Pierre: Hurk!
 	Narrator: A job well done. Now to get out of here.
+	set State.killed_jean_pierre = true
+	set State.french_ally = -1
 	=> END
 - Offer words
 	=> bakery_parley
 
 ~ bakery_parley
-Jean-Pierre: Be quick about it then, what do you want.
+Jean-Pierre: Be quick about it then, what do you want?
 
 - Don DiSpagna wants you dead
+	Narrator: The crazed frenchman guaffs heartily, moustache bouncing.
+	Jean-Pierre: He's welcome to try!
+	Jean-Pierre: ...
+	Jean-Pierre: He sent you?
+	- Oui (Yes)
+		Jean-Pierre: Then, I suppose, you are welcome to try!
+	- Je suis venu te prévenir (I came to warn you)
+		set State.italian_ally = State.italian_ally - 1
+		set State.french_ally = 1
+		Jean-Pierre: Hmm... why do you go against the Don?
+		- They grow too powerful
+			Jean-Pierre: Phah, some power. They can barely hold to their control.
+			Jean-Pierre: In fact... I might be inclined to go show them what's what.
+			Jean-Pierre: See you around, friend.
+		- They killed someone I cared for
+			Jean-Pierre: This affront will not stand! When you go against them, you shall have the help of the Boulanger brothers!
+		Narrator: Jean-Pierre gets up, rushing off in a rage.
+		Narrator: You have started... something here. What, remains to be seen.
+		=> END
 - Don DiSpagna requires your 
 # TODO on killed someone
 - I'm looking for a job. You have an opening [State.bakery_killed_staff]
-
-
+	Jean-Pierre: I take no applications. What opening?
+	Narrator: A trail of blood drips under the door to the kitchen.
+	Narrator: Jean-Pierre's brows rise. He grits his teeth and comes at you in a rage!
+set State.french_ally = -1
+set State.killed_jean_pierre = true # Unlses we want to not kill him in gameplay
 => END

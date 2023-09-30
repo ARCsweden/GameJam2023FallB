@@ -85,12 +85,12 @@ Narrator: Not Jean-Pierre.
 ~ bakery_front
 # Run this immediately on EntryPoint.Front in the bakery scene
 Narrator: You step inside, immediately falling inside the fevered gaze of the cashier.
-Frenchman: Chi sei? Cosa vuoi qui?!
-- Morte
+Frenchman: Qui es-tu? Que veux-tu? (Who are you? What do you want?)
+- La mort (death)
 	Narrator: The frenchman's eyes widen as he reaches for a hardened battle baguette and a bottle of red wine.
-	Frenchman: Vieni da me fratello! En garde!
-- Pane
+	Frenchman: Viens par là, mon pote! En garde! (Come at me bro! En garde!)
+- Pain (bread)
 	Narrator: The frenchman's eyes glaze over as he reaches for a hardened battle baguette and a bottle of red wine.
-	Frenchman: Pane lo è! En garde!
+	Frenchman: C'est du pain! En garde! (Bread it is! En garde!)
 	
 => END
