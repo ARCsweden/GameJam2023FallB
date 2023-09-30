@@ -16,9 +16,10 @@ func get_input():
 	if Input.is_action_pressed("ui_up"):
 		emit_signal("throw_item", position)
 		
-		if($Charachter/AnimationPlayer.current_animation != "idle"):
-			$Charachter/AnimationPlayer.play("idle")
+		
 
 func _physics_process(delta):
 	get_input()
+
+	$Charachter/AnimationPlayer.play("idle")
 	move_and_slide()
