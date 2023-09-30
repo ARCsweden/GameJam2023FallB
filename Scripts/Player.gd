@@ -46,3 +46,4 @@ func _attack():
 	
 func _on_attack_timer_timeout():
 	able_to_attack = true
+
