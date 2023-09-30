@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dn84yi4ftyy4l"]
+[gd_scene load_steps=6 format=3 uid="uid://dn84yi4ftyy4l"]
 
 [ext_resource type="PackedScene" uid="uid://bi0mewcjm2kxg" path="res://Scenes/Player.tscn" id="1_gad1n"]
-[ext_resource type="Texture2D" uid="uid://de7vs4owuoxfb" path="res://proxy-image.jpg" id="1_r4dy0"]
-[ext_resource type="PackedScene" uid="uid://cnlvshkf4pjh8" path="res://Scenes/MeleeEnemy.tscn" id="3_l6m37"]
+[ext_resource type="PackedScene" path="res://Scenes/MeleeEnemy.tscn" id="3_l6m37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kj6e6"]
 size = Vector2(245, 188)
@@ -16,7 +15,6 @@ size = Vector2(161, 794)
 [node name="Bakery" type="Node2D"]
 
 [node name="LevelImage" type="Sprite2D" parent="."]
-texture = ExtResource("1_r4dy0")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_gad1n")]
 

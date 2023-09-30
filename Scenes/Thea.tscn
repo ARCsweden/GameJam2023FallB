@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bs311lktyyo3s"]
+[gd_scene load_steps=3 format=3 uid="uid://bs311lktyyo3s"]
 
 [ext_resource type="PackedScene" uid="uid://bi0mewcjm2kxg" path="res://Scenes/Player.tscn" id="1_hg1e6"]
+[ext_resource type="Texture2D" uid="uid://cle33ohjjhiqb" path="res://icon.svg" id="2_ltv3o"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,3 +22,7 @@ offset_top = -144.0
 offset_right = 225.0
 offset_bottom = 60.0
 text = "Test"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-132, 167)
+texture = ExtResource("2_ltv3o")
