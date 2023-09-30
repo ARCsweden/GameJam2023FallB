@@ -8,12 +8,20 @@ var current_health = max_health
 var able_to_attack = true
 var attack_range = 400
 
+@onready var sprite = $Sprite
+@onready var anim_player = $Sprite/AnimationPlayer
+
 func ready():
 	current_health = max_health
 
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_direction * SPEED
+	if velocity.x > 0:
+		sprite.flip_h = false
+	elif velocity.x < 0:
+		sprite.flip_h = true
+		
 	# if weapons has children:
 	#if Input.is_action_pressed("ui_up"):
 	#	emit_signal("throw_item", position)
@@ -25,7 +33,7 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	$Charachter/AnimationPlayer.play("idle")
+	anim_player.play("idle")
 	move_and_slide()
 
 func damaged():
