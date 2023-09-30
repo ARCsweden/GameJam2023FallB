@@ -13,4 +13,5 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _attack():
-	pass
+	var Player = get_node("../../CharacterBody2D")
+	Player.damaged()
