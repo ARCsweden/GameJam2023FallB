@@ -25,4 +25,5 @@ var entry_point
 var bakery_killed_staff = false
 var killed_jean_pierre = false
 var joined_carabella = false
+var ran_away = false
 

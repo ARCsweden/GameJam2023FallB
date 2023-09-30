@@ -36,6 +36,7 @@ func damaged():
 func _kill():
 	get_tree().reload_current_scene()
 
+
 func _attack():
 	# Damage all enemies in range
 	if get_tree().root.get_node("Weapon").get_child_count():
@@ -45,3 +46,4 @@ func _attack():
 	
 func _on_attack_timer_timeout():
 	able_to_attack = true
+
