@@ -1,0 +1,26 @@
+~ monaco_arrival
+Narrator: You are greeted by balmy air smelling of gunsmoke as you exit the Monaco International Airport, weaving through the barricades manned by nervous airport staffers.
+Narrator: The streets beyond are cluttered with debris and spent casings, the ongoing effects of a brutal gang conflict, one you are here to either end or add to.
+Narrator: An ancient looking shiny black Cadillac awaits you outside, a slim dark-haired woman in a black suit entirely unsuited for the weather leans against it, seemingly unbothered by the distant gunshots, smoking a cigarette.
+
+Woman: You're the one, then, Sicario. My father awaits at the manse.
+Narrator: She gestures for you to take the passenger seat while she stubs out her smoke and sits down behind the wheel.
+- Converse
+	Narrator: Intrigued by this Italian Femme Fatale, you decide to start up a conversation, but the woman appears cold.
+	Woman: Time enough for pleasantries once you have your mission, Sicario.
+	Narrator: That appears to be that.
+- Observe town
+	Narrator: You're here for a job. Perhaps it's prudent to keep an eye out.
+	Narrator: The road taken through the small port town is a winding one, as the driver clearly avoids certain areas.
+	Narrator: Suspicious eyes watch from behind boarded up windows as the gleaming black dinosaur navigates the streets. The Italians are foreigners, and newcomers at that.
+	Narrator: They are not welcome here, but they seem to be feared.
+- Observe her
+	Narrator: The woman; by her own words the daughter of the Don himself, appears to be a cold one, all focus and business. She's attractive enough, but in a jaguar-that-will-eat-your-face kind of way.
+	Narrator: If she takes note of your curiosity, she doesn't acknowledge it.
+
+Narrator: No trouble assail you, and arrive at a large mansion with a view of most of the city. The car passes through the gates, the faceless men in suits standing guard closing them behind you.
+Woman: Follow.
+Narrator: Your watchful eyes catch a number of barely covered up bullet holes in the walls as you walk behind her up a large set of stairs.
+Narrator: Perhaps a testament to the violent nature of the acquisition from the previous owner.
+
+=> END
