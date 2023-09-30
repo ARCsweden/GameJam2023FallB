@@ -2,17 +2,17 @@ extends Node
 
 # Put global gamestate here
 var italian_ally = 0
-var french_ally = 0
+
+var sandwich = false
 
 enum Weapon {
 	Nothing,
-	Sandwich,
 	Pen,
 	Baguette,
 	Croissant,
 }
 
-var weapon: Weapon = Weapon.Sandwich
+var weapon: Weapon = Weapon.Nothing
 
 enum EntryPoint {
 	Front,
