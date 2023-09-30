@@ -56,13 +56,40 @@ Carabella: We have to strike now, while the Don is unawares.
 Narrator: ...The Don? Truly this day is rife with betrayals.
 Narrator: With Carabella's goons in hot pursuit, you throw yourself into the alleyways of Monaco.
 - Try to lose them
-	# TODO:
-
+	Narrator: The streets and alleys of Monaco are narrow, and offer plenty of opportunity to lose your pursuers.
+	Narrator: Weaving in and out of courtyards, dark footwalks and rooftops, the footsteps of the Italians grow ever more distant.
+	=> leaving
 - Lead them to the French [State.killed_jean_pierre == false]
-	# TODO:
-
+	Narrator: Now was as good a time as any to use your newfound allies.
+	Narrator: You double back, heading towards the bakery. It's not long until both you and your pursuers run across the trail of the two Boulanger brothers.
+	Narrator: The Italians hit the french bakers like a wave crashing against a rock wall, with about as much effectiveness. The French draw their battle-breads and charge.
+	Narrator: Before long, your steps are the only ones echoing on the street.
+	=> leaving
+	# TODO: Adjust state
 - Take them out
 	set State.weapon = State.Weapon.Nothing
+	Narrator: They outnumber you ten to one, but that is nothing to give you pause.
+	Narrator: Weaving through the streets, you methodically eliminate your pursuers one by one, but in the process lose any weapons you're carrying.
+	Narrator: Everntually, you are alone.
+	Narrator: There were more of them, but they must have gone ahead with Carabella.
+	=> leaving
+	# TODO:
+=> END
+
+~ leaving
+Narrator: You slow down. Pausing to think.
+if State.italian_ally < 0
+	Narrator: Carabella appears to have her own plans for the Don's demise.
+else
+	Narrator: Carabella appears to have designs for her own father's demise.
+Narrator: Undoubtedly, she would run this town with an iron fist once she was in power. Considering the way you parted, she might prove troublesome for you in the future.
+if State.killed_jean_pierre == false
+	Narrator: There was Jean-Pierre and his brother to consider too. Did you care what became of the crazy bakers?
+- Head to the mansion
+	# TODO:
+	
+- Leave Monaco behind
+
 	# TODO:
 
 => END
