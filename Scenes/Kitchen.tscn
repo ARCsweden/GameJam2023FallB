@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvrxo84r56bn5"]
+[gd_scene load_steps=16 format=3 uid="uid://dvrxo84r56bn5"]
 
 [ext_resource type="Texture2D" uid="uid://ced1igucq4w6u" path="res://Asset/kiln.webp" id="1_tc5oc"]
 [ext_resource type="PackedScene" uid="uid://bi0mewcjm2kxg" path="res://Scenes/Player.tscn" id="2_aywdi"]
+[ext_resource type="PackedScene" uid="uid://bfwpbn0g1bgvg" path="res://Scenes/FrenchBoss.tscn" id="3_s8rqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vhyl"]
 size = Vector2(1427, 24.5)
@@ -45,10 +46,16 @@ size = Vector2(102, 186)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_tc5oc")
 
-[node name="Player" parent="." instance=ExtResource("2_aywdi")]
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="YSort" instance=ExtResource("2_aywdi")]
 position = Vector2(66, 497)
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="YSort"]
+
+[node name="FrenchBoss" parent="YSort/Enemies" instance=ExtResource("3_s8rqv")]
+position = Vector2(170, -167)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
