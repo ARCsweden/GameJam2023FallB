@@ -21,7 +21,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _attack():
-	var Player = get_node("../../CharacterBody2D")
+	var Player = get_node("../../Player")
 	Player.damaged()
 
 func _on_timer_timeout():

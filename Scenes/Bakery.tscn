@@ -70,7 +70,7 @@ size = Vector2(111.5, 111)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_54qsi")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_gad1n")]
+[node name="Player" parent="." instance=ExtResource("1_gad1n")]
 position = Vector2(4, 731)
 
 [node name="Enemies" type="Node2D" parent="."]
