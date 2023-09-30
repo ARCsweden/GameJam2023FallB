@@ -10,20 +10,43 @@ Carabella: Sicario. The deed is done then?
 	Carabella: You appear more... effective than I first imagined, Sicario.
 	Carabella: I have a proposition for you. Call it an offer you can't refuse.
 	Narrator: Out of the corner of your eye, you can see her men closing in around, guns at the ready.
-	Carabella: My father has grown old. His ways are no longer effective, especially not in this town.
-	Carabella: Time has come for new management.
-	Narrator: She gives you a piercing glance, a slight smile playing on her lips.
-	Carabella: So, what will it be, Sicario? Will you join my little coup d'état?
-	- Join Carabella
-	- Stay loyal to the Don
+	=> carabella_proposal
 - Yes (lie) [State.killed_jean_pierre == false]
 	Narrator: The Don's daughter regards you coldly.
 	Carabella: You thought I wouldn't check, Sicario? Bad move...
 	=> betrayal
 - No [State.killed_jean_pierre == false]
+	Narrator: Carabella hesitates, frowning.
+	Carabella: Now, why would that be? I can hardly imagine you failed due to lack of skill.
+	- Never intended to
+		Carabella: Huh. I never thought you would betray my father...
+		Narrator: You tense up, readying yourself for a fight.
+		Carabella: ...then again, I guess that makes two of us.
+	- Bigger fish to fry
+		Narrator: She smiles. It is a cold, predatory thing that would giva a shark pause.
+		Carabella: My father, no? What a coincidence. I happen to agree.
+	=> carabella_proposal
 
-
-# Variation depending on State.killed_jean_pierre
+~ carabella_proposal
+Carabella: My father has grown old. His ways are no longer effective, especially not in this town.
+Carabella: Time has come for new management.
+Narrator: She gives you a piercing glance, a slight smile playing on her lips.
+Carabella: So, what will it be, Sicario? Will you join my little coup d'état?
+- Join Carabella
+	Narrator: Carabella claps her hands, nodding sharply. Everyone else relaxes.
+	Carabella: Capital! Then we have no time to waste. To the mansion!
+	Carabella: I will not forget this, Sicario. You will be well compensated.
+	Narrator: All of you hop into cars, and soon you are cruising to the DiSpagna mansion, murder in your minds.
+	set State.joined_carabella = true
+	=> END
+- Stay loyal to the Don [State.killed_jean_pierre == false]
+	Narrator: This wasn't in the contract. And you never. ever. break a contract.
+	Narrator: Carabella can see your decision in your eyes (despite the sunglasses), and she gives a shrug.
+	Carabella: Well, I gave you the offer at least.
+	=> betrayal
+- Decline
+	Carabella: Well, I gave you the offer at least.
+	=> betrayal
 
 ~ betrayal
 Narrator: Only the instincts honed over the years saves you.
@@ -33,10 +56,13 @@ Carabella: We have to strike now, while the Don is unawares.
 Narrator: ...The Don? Truly this day is rife with betrayals.
 Narrator: With Carabella's goons in hot pursuit, you throw yourself into the alleyways of Monaco.
 - Try to lose them
-	
+	# TODO:
+
 - Lead them to the French [State.killed_jean_pierre == false]
-	
+	# TODO:
+
 - Take them out
 	set State.weapon = State.Weapon.Nothing
+	# TODO:
 
 => END
