@@ -2,14 +2,17 @@ extends Node
 
 # Put global gamestate here
 var italian_ally = 0
+var french_ally = 0
 
-enum Weapons {
+enum Weapon {
 	Nothing,
 	Sandwich,
 	Pen,
+	Baguette,
+	Croissant,
 }
 
-var weapon: Weapons = Weapons.Nothing
+var weapon: Weapon = Weapon.Sandwich
 
 enum EntryPoint {
 	Front,
@@ -17,3 +20,7 @@ enum EntryPoint {
 }
 
 var entry_point
+
+# TODO: Set when killing one of the staff in any way
+var bakery_killed_staff = false
+

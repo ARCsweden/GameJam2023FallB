@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_10"
+type="Resource"
+uid="uid://b8iqvp8rry55v"
+path="res://.godot/imported/bakery.dialogue-70e783caf4ff16fddc87fd69fc99a33f.tres"
+
+[deps]
+
+source_file="res://Dialog/bakery.dialogue"
+dest_files=["res://.godot/imported/bakery.dialogue-70e783caf4ff16fddc87fd69fc99a33f.tres"]
+
+[params]
+
+defaults=true

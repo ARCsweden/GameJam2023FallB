@@ -74,17 +74,23 @@ Narrator: Not Jean-Pierre.
 - Enter the front
 	set State.entry_point = State.EntryPoint.Front
 	Narrator: No blood has been shed yet. Surely entering as a customer will work?
-	Narrator: You step inside, immediately falling inside the fevered gaze of the cashier.
-	Frenchman: Chi sei? Cosa vuoi qui?!
-	- Morte
-		Narrator: The frenchman's eyes widen as he reaches for a hardened battle baguette and a bottle of red wine.
-		Frenchman: Vieni da me fratello! En garde!
-	- Pane
-		Narrator: The frenchman's eyes glaze over as he reaches for a hardened battle baguette and a bottle of red wine.
-		Frenchman: Pane lo è! En garde!
 - Enter the back door
 	set State.entry_point = State.EntryPoint.Back
 	Narrator: Figuring that it wouldn't do to draw attention already, you slide up the alley next to the bakery.
 	Narrator: The back door is slightly ajar. Murmured voices can be heard in what is presumably French.
+# TODO: Should enter the bakery here
+=> END
 
+
+~ bakery_front
+# Run this immediately on EntryPoint.Front in the bakery scene
+Narrator: You step inside, immediately falling inside the fevered gaze of the cashier.
+Frenchman: Chi sei? Cosa vuoi qui?!
+- Morte
+	Narrator: The frenchman's eyes widen as he reaches for a hardened battle baguette and a bottle of red wine.
+	Frenchman: Vieni da me fratello! En garde!
+- Pane
+	Narrator: The frenchman's eyes glaze over as he reaches for a hardened battle baguette and a bottle of red wine.
+	Frenchman: Pane lo è! En garde!
+	
 => END

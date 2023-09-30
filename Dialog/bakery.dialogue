@@ -1,0 +1,49 @@
+~ bakery_kiln
+Narrator: As soon as you step inside the oppressively hot kitchen, you find yourself under the gaze of a massive brute of a frenchman.
+Narrator: Presumably Jean-Pierre, your target. Massive muscles flex as he narrows his eyes, slowly reaching for a nearby bundle of baguettes.
+Narrator: You can see the whites of his eyes from across the room. If you want to de-escalate the situation, now is the time.
+
+# TODO: Read state
+
+if State.weapon == State.Weapon.Baguette and State.bakery_killed_staff
+	Jean-Pierre: I see blood on your battle-bread. You have chosen death, then.
+	Narrator: You glance down at the sullied baguette. Little point in denying it at this point.
+	set State.french_ally = -1
+	=> END
+
+- Don DiSpagna ti manda i suoi saluti.
+	# Don DiSpagna sends his regards
+	Narrator: The baker grits his teeth.
+	Jean-Pierre: You are not welcome here!
+	set State.french_ally = -1
+	# Should fight Jean-Pierre here
+	=> END
+- Aspetta! Sono venuto qui per parlare.
+	# Wait! I came here to talk
+	Narrator: Jean-Pierre's eyes narrow, but he stays his hand.
+	Jean-Pierre: Parley? Just who are you?
+
+Narrator: You think on how you want to approach this.
+
+- Offer Sandwich [State.weapon == State.Weapon.Sandwich]
+	Narrator: You hold up the plastic bag with the sandwich in.
+	Jean-Pierre: Hmm... a man of culture I see. Very well, I will break bread with you.
+	Narrator: The two of you exchange gifts of food, his hardened battle-baguette only slightly less lethal than your poisoned club. Jean-Pierre digs in.
+	Jean-Pierre: Exquisite... A tinge of mustard?
+	Narrator: Mustard gas.
+	Jean-Pierre: Hurk!
+	Narrator: A job well done. Now to get out of here.
+	=> END
+- Offer words
+	=> bakery_parley
+
+~ bakery_parley
+Jean-Pierre: Be quick about it then, what do you want.
+
+- Don DiSpagna wants you dead
+- Don DiSpagna requires your 
+# TODO on killed someone
+- I'm looking for a job. You have an opening [State.bakery_killed_staff]
+
+
+=> END
