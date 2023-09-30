@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 var SPEED = 200
+var max_health = 1
+var current_health = max_health
 var able_to_attack = true
 
 func _physics_process(delta):
@@ -24,3 +26,11 @@ func _attack():
 
 func _on_timer_timeout():
 	able_to_attack = true
+
+func damaged():
+	current_health -= 1
+	if current_health <= 0:
+		_kill()
+		
+func _kill():
+	queue_free()
