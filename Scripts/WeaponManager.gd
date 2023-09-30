@@ -13,6 +13,11 @@ func _process(delta):
 		$WeaponSprite2D.visible=false
 		$interact.visible=false 
 		picked_up = true
+		#change state of weapon using global weapon
+		State.weapon=State.Weapon.Baguette
+		
+		
+		
 
 
 func _on_weapon_pickup_area_2d_body_entered(body):

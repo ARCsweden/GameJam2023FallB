@@ -5,14 +5,14 @@ var italian_ally = 0
 
 var sandwich = false
 
-enum Weapon {
+enum Weapon {  
 	Nothing,
 	Pen,
 	Baguette,
 	Croissant,
 }
 
-var weapon: Weapon = Weapon.Nothing
+var weapon: Weapon = Weapon.Nothing #shows as index(int) when printed
 
 enum EntryPoint {
 	Front,

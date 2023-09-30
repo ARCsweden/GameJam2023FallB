@@ -7,12 +7,24 @@ var max_health = 3
 var current_health = max_health
 var able_to_attack = true
 var attack_range = 400
+var equipped_baguette = preload("res://Asset/baguette.png")
 
 @onready var sprite = $Sprite
 @onready var anim_player = $Sprite/AnimationPlayer
+@onready var equippedweapon_sprite = $Weapon/EquippedWeapon
 
 func ready():
 	current_health = max_health
+func _process(delta):
+	#print(State.weapon) #0=nothing #3 is baguette
+	#if State.weapon==0: #free hands
+		#pass
+	if State.weapon==3:
+		#print("got baguette!")
+		equippedweapon_sprite.set_texture(equipped_baguette)
+		
+		
+	
 
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
