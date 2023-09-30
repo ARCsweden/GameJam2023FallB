@@ -1,0 +1,42 @@
+~ alleyway
+Narrator: You extract yourself from the Crusty Croissant, exiting into the streets of Monaco.
+Narrator: You haven't gotten far when you're hailed by Carabella DiSpagna.
+Carabella: Sicario. The deed is done then?
+- Yes [State.killed_jean_pierre]
+	if State.bakery_killed_staff
+		Carabella: So you did. A bit sloppy too... who to pay the protection fee if everyone is dead, Sicario?
+		Carabella: Ah well, there's always the younger brother.
+	Narrator: Carabella looks thoughtful.
+	Carabella: You appear more... effective than I first imagined, Sicario.
+	Carabella: I have a proposition for you. Call it an offer you can't refuse.
+	Narrator: Out of the corner of your eye, you can see her men closing in around, guns at the ready.
+	Carabella: My father has grown old. His ways are no longer effective, especially not in this town.
+	Carabella: Time has come for new management.
+	Narrator: She gives you a piercing glance, a slight smile playing on her lips.
+	Carabella: So, what will it be, Sicario? Will you join my little coup d'état?
+	- Join Carabella
+	- Stay loyal to the Don
+- Yes (lie) [State.killed_jean_pierre == false]
+	Narrator: The Don's daughter regards you coldly.
+	Carabella: You thought I wouldn't check, Sicario? Bad move...
+	=> betrayal
+- No [State.killed_jean_pierre == false]
+
+
+# Variation depending on State.killed_jean_pierre
+
+~ betrayal
+Narrator: Only the instincts honed over the years saves you.
+Narrator: As the tommy-guns start to smatter, you throw yourself behind a nearby garbage container, dodging the lethal hail.
+Carabella: After him. We don't have time for distractions.
+Carabella: We have to strike now, while the Don is unawares.
+Narrator: ...The Don? Truly this day is rife with betrayals.
+Narrator: With Carabella's goons in hot pursuit, you throw yourself into the alleyways of Monaco.
+- Try to lose them
+	
+- Lead them to the French [State.killed_jean_pierre == false]
+	
+- Take them out
+	set State.weapon = State.Weapon.Nothing
+
+=> END

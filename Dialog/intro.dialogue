@@ -57,15 +57,15 @@ Carabella: I take it you came prepared? A tommy-gun is perhaps a bit too obvious
 Narrator: You give her a carefully neutral face.
 Narrator: Ever since a massive swatch of terrorist attacks and gang conflicts raged across the continent a few years back, airport security had become even more draconean than it was before.
 Narrator: People of your presuasion had been forced to... adapt. You checked your pocket to confirm. Inside was...
+set State.weapon = State.Weapon.Nothing
 - Sandwich
-	set State.weapon = State.Weapon.Sandwich
+	set State.sandwich = true
 	Narrator: ...a club sandwich, carefully wrapped in plastic.
 	Narrator: To the unsuspecting TSA agent, it looks like nothing more than lunch, but this particular meal had been meticulously prepared in a bio-lab to cause instant death upon ingestion. 
 - Ballpoint pen
 	set State.weapon = State.Weapon.Pen
 	Narrator: ...a set of common ballpoint pens. At least to the naked eye, which didn't reveal the damascus-crafted tip, sharp enough to pierce kevlar if thrown.
 - Nothing
-	set State.weapon = State.Weapon.Nothing
 	Narrator: ...nothing. You prefer to acquire weapons on site for a job. In hindsight, this particular approach may be ill suited for a Bakery. Ah well.
 Narrator: You nod. This is fine.
 Carabella: I'll leave you to it then. We'll meet behind the bakery once it's done.

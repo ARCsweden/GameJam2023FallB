@@ -8,15 +8,15 @@ Narrator: You can see the whites of his eyes from across the room. If you want t
 if State.weapon == State.Weapon.Baguette and State.bakery_killed_staff
 	Jean-Pierre: I see blood on your battle-bread. You have chosen death, then.
 	Narrator: You glance down at the sullied baguette. Little point in denying it at this point.
-	set State.french_ally = -1
+	set State.killed_jean_pierre = true
 	=> END
 
 - Don DiSpagna ti manda i suoi saluti (Don DiSpagna sends his regards)
 	# Don DiSpagna sends his regards
 	Narrator: The baker grits his teeth.
 	Jean-Pierre: You are not welcome here!
-	set State.french_ally = -1
 	# Should fight Jean-Pierre here
+	set State.killed_jean_pierre = true
 	=> END
 - Attendez! Je suis venu ici pour parler (Wait! I want to talk)
 	# Wait! I came here to talk
@@ -25,7 +25,7 @@ if State.weapon == State.Weapon.Baguette and State.bakery_killed_staff
 
 Narrator: You think on how you want to approach this.
 
-- Offer sandwich [State.weapon == State.Weapon.Sandwich]
+- Offer sandwich [State.sandwich]
 	Narrator: You hold up the plastic bag with the sandwich in.
 	Jean-Pierre: Hmm... a man of culture I see. Very well, I will break bread with you.
 	Narrator: The two of you exchange gifts of food, his hardened battle-baguette only slightly less lethal than your poisoned club. Jean-Pierre digs in.
@@ -34,7 +34,7 @@ Narrator: You think on how you want to approach this.
 	Jean-Pierre: Hurk!
 	Narrator: A job well done. Now to get out of here.
 	set State.killed_jean_pierre = true
-	set State.french_ally = -1
+	set State.sandwich = false
 	=> END
 - Offer words
 	=> bakery_parley
@@ -51,7 +51,6 @@ Jean-Pierre: Be quick about it then, what do you want?
 		Jean-Pierre: Then, I suppose, you are welcome to try!
 	- Je suis venu te prévenir (I came to warn you)
 		set State.italian_ally = State.italian_ally - 1
-		set State.french_ally = 1
 		Jean-Pierre: Hmm... why do you go against the Don?
 		- They grow too powerful
 			Jean-Pierre: Phah, some power. They can barely hold to their control.
@@ -68,6 +67,5 @@ Jean-Pierre: Be quick about it then, what do you want?
 	Jean-Pierre: I take no applications. What opening?
 	Narrator: A trail of blood drips under the door to the kitchen.
 	Narrator: Jean-Pierre's brows rise. He grits his teeth and comes at you in a rage!
-set State.french_ally = -1
 set State.killed_jean_pierre = true # Unlses we want to not kill him in gameplay
 => END
