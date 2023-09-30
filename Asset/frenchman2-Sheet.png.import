@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfkl48svc7sew"
-path="res://.godot/imported/temporary_bakery.jpg-67e8356b3ae105269c94d6a8b6a2ac1a.ctex"
+uid="uid://c71uokn25b1n4"
+path="res://.godot/imported/frenchman2-Sheet.png-e544b804cf0d01812a01365e66473748.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/temporary_bakery.jpg"
-dest_files=["res://.godot/imported/temporary_bakery.jpg-67e8356b3ae105269c94d6a8b6a2ac1a.ctex"]
+source_file="res://Asset/frenchman2-Sheet.png"
+dest_files=["res://.godot/imported/frenchman2-Sheet.png-e544b804cf0d01812a01365e66473748.ctex"]
 
 [params]
 

@@ -1,30 +1,72 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnlvshkf4pjh8"]
+[gd_scene load_steps=7 format=3 uid="uid://cnlvshkf4pjh8"]
 
-[ext_resource type="Texture2D" uid="uid://bkxf23cd0iqr6" path="res://icon.svg" id="1_clj4i"]
 [ext_resource type="Script" path="res://Scripts/MeleeEnemy.gd" id="1_vvd4x"]
+[ext_resource type="Texture2D" uid="uid://iycuu83cdv02" path="res://Asset/frenchman1-Sheet.png" id="2_sjivh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j661k"]
-size = Vector2(137, 133)
+[sub_resource type="CircleShape2D" id="CircleShape2D_hqb2n"]
+radius = 33.5336
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_iqubg"]
-radius = 196.367
+[sub_resource type="Animation" id="Animation_sxw6v"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ttyp4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a571l"]
+_data = {
+"RESET": SubResource("Animation_ttyp4"),
+"idle": SubResource("Animation_sxw6v")
+}
 
 [node name="MeleeEnemy" type="CharacterBody2D"]
 script = ExtResource("1_vvd4x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_clj4i")
+position = Vector2(0, -8)
+texture = ExtResource("2_sjivh")
+centered = false
+offset = Vector2(-50, -80)
+hframes = 4
+frame = 1
+region_rect = Rect2(0, 0, 133, 139)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_j661k")
-
-[node name="Hurtbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("CircleShape2D_iqubg")
+position = Vector2(-0.5, -7.5)
+shape = SubResource("CircleShape2D_hqb2n")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a571l")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
