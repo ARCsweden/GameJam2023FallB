@@ -1,3 +1,16 @@
+~ bakery_front
+# Run this immediately on EntryPoint.Front in the bakery scene
+Narrator: You step inside, immediately falling inside the fevered gaze of the cashier.
+Frenchman: Qui es-tu? Que veux-tu? (Who are you? What do you want?)
+- La mort (death)
+	Narrator: The frenchman's eyes widen as he reaches for a hardened battle baguette and a bottle of red wine.
+	Frenchman: Viens par là, mon pote! En garde! (Come at me bro! En garde!)
+- Pain (bread)
+	Narrator: The frenchman's eyes glaze over as he reaches for a hardened battle baguette and a bottle of red wine.
+	Frenchman: C'est du pain! En garde! (Bread it is! En garde!)
+	
+=> END
+
 ~ bakery_kiln
 Narrator: As soon as you step inside the oppressively hot kitchen, you find yourself under the gaze of a massive brute of a frenchman.
 Narrator: Presumably Jean-Pierre, your target. Massive muscles flex as he narrows his eyes, slowly reaching for a nearby bundle of baguettes.
