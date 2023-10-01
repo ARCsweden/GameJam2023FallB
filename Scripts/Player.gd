@@ -16,12 +16,14 @@ var equipped_baguette = preload("res://Asset/baguette.png")
 func ready():
 	current_health = max_health
 func _process(delta):
-	#print(State.weapon) #0=nothing #3 is baguette
-	#if State.weapon==0: #free hands
-		#pass
-	if State.weapon==3:
+	#print(State.weapon)
+	if State.weapon==2:
 		#print("got baguette!")
 		equippedweapon_sprite.set_texture(equipped_baguette)
+	#print(State.weapon) #0=nothing #2 is baguette
+	#if State.weapon==0: #free hands
+		#pass
+	
 		
 		
 	
