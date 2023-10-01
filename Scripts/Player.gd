@@ -18,13 +18,15 @@ func _ready():
 	current_health = max_health
 	anim_player.play("idle")
 
-func _process(_delta):
-	#print(State.weapon) #0=nothing #3 is baguette
-	#if State.weapon==State.Weapon.Nothing: #free hands
-		#pass
+func _process(delta):
+	#print(State.weapon)
 	if State.weapon==State.Weapon.Baguette:
 		#print("got baguette!")
 		equippedweapon_sprite.set_texture(equipped_baguette)
+	#print(State.weapon) #0=nothing #2 is baguette
+	#if State.weapon==State.Weapon.Nothing: #free hands
+		#pass
+	
 		
 		
 	
