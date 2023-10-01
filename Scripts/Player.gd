@@ -21,6 +21,7 @@ func _ready():
 
 func _process(delta):
 	queue_redraw()
+	$"HP label".text = str(current_health) + " HP"
 	#print(State.weapon)
 	if State.weapon==State.Weapon.Baguette:
 		#print("got baguette!")
