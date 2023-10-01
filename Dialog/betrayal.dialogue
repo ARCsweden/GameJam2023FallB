@@ -1,21 +1,23 @@
 ~ alleyway
 Narrator: You extract yourself from the Crusty Croissant, exiting into the streets of Monaco.
 Narrator: You haven't gotten far when you're hailed by Carabella DiSpagna.
+do State.set_bg_image.emit(State.tex_carabella)
 Carabella: Sicario. The deed is done then?
-- Yes [State.killed_jean_pierre]
+- Yes [if State.killed_jean_pierre]
 	if State.bakery_killed_staff:
 		Carabella: So you did. A bit sloppy too... who to pay the protection fee if everyone is dead, Sicario?
 		Carabella: Ah well, there's always the younger brother.
 	Narrator: Carabella looks thoughtful.
 	Carabella: You appear more... effective than I first imagined, Sicario.
 	Carabella: I have a proposition for you. Call it an offer you can't refuse.
+	do State.set_bg_image.emit(State.tex_mafia)
 	Narrator: Out of the corner of your eye, you can see her men closing in around, guns at the ready.
 	=> carabella_proposal
-- Yes (lie) [State.killed_jean_pierre == false]
+- Yes (lie) [if State.killed_jean_pierre == false]
 	Narrator: The Don's daughter regards you coldly.
 	Carabella: You thought I wouldn't check, Sicario? Bad move...
 	=> betrayal
-- No [State.killed_jean_pierre == false]
+- No [if State.killed_jean_pierre == false]
 	Narrator: Carabella hesitates, frowning.
 	Carabella: Now, why would that be? I can hardly imagine you failed due to lack of skill.
 	- Never intended to
@@ -36,11 +38,12 @@ Carabella: So, what will it be, Sicario? Will you join my little coup d'état?
 	Narrator: Carabella claps her hands, nodding sharply. Everyone else relaxes.
 	Carabella: Capital! Then we have no time to waste. To the mansion!
 	Carabella: I will not forget this, Sicario. You will be well compensated.
+	do State.set_bg_image.emit(State.tex_driving)
 	Narrator: All of you hop into cars, and soon you are cruising to the DiSpagna mansion, murder in your minds.
 	set State.joined_carabella = true
 	# TODO: To mansion, with Carabella
 	=> END
-- Stay loyal to the Don [State.killed_jean_pierre == false]
+- Stay loyal to the Don [if State.killed_jean_pierre == false]
 	Narrator: This wasn't in the contract. And you never. ever. break a contract.
 	Narrator: Carabella can see your decision in your eyes (despite the sunglasses), and she gives a shrug.
 	Carabella: Well, I gave you the offer at least.
@@ -50,17 +53,20 @@ Carabella: So, what will it be, Sicario? Will you join my little coup d'état?
 	=> betrayal
 
 ~ betrayal
+do State.set_bg_image.emit(State.tex_mafia)
 Narrator: Only the instincts honed over the years saves you.
 Narrator: As the tommy-guns start to smatter, you throw yourself behind a nearby garbage container, dodging the lethal hail.
+do State.set_bg_image.emit(State.tex_carabella)
 Carabella: After him. We don't have time for distractions.
 Carabella: We have to strike now, while the Don is unawares.
 Narrator: ...The Don? Truly this day is rife with betrayals.
 Narrator: With Carabella's goons in hot pursuit, you throw yourself into the alleyways of Monaco.
+do State.set_bg_image.emit(State.tex_alley)
 - Try to lose them
 	Narrator: The streets and alleys of Monaco are narrow, and offer plenty of opportunity to lose your pursuers.
 	Narrator: Weaving in and out of courtyards, dark footwalks and rooftops, the footsteps of the Italians grow ever more distant.
 	=> leaving
-- Lead them to the French [State.killed_jean_pierre == false]
+- Lead them to the French [if State.killed_jean_pierre == false]
 	Narrator: Now was as good a time as any to use your newfound allies.
 	Narrator: You double back, heading towards the bakery. It's not long until both you and your pursuers run across the trail of the two Boulanger brothers.
 	Narrator: The Italians hit the french bakers like a wave crashing against a rock wall, with about as much effectiveness. The French draw their battle-breads and charge.
@@ -77,6 +83,7 @@ Narrator: With Carabella's goons in hot pursuit, you throw yourself into the all
 	# TODO:
 
 ~ leaving
+do State.set_bg_image.emit(State.tex_hitman)
 Narrator: You slow down. Pausing to think.
 if State.italian_ally < 0:
 	Narrator: Carabella appears to have her own plans for the Don's demise.
@@ -96,7 +103,9 @@ if State.killed_jean_pierre == false:
 	Narrator: Things were getting too hot here. Though it would mean burning a few bridges, this was hardly the only gang conflict in the world where a man of your talents could profit.
 	Narrator: Let the Italians, the French and whoever else vied for power here duke it out with each other. Hopefully, when the winner rose from the ashes, they'd have forgotten about you.
 	Narrator: Smelling of bread and failure, you return to the Monaco International Airport to book your home flight.
+	do State.set_bg_image.emit(State.tex_airplane)
 	Narrator: By the time the plane left the ground, you could see the fires spreading.
+	Narrator: THE END
 	# TODO: End screen
 	set State.ran_away = true
 => END
