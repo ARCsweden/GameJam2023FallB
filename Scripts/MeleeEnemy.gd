@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var SPEED = 200
-var max_health = 1
+@export var max_health = 1
 var current_health = max_health
 var able_to_attack = true
 var attack_range = 200

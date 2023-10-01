@@ -58,6 +58,7 @@ position = Vector2(66, 497)
 
 [node name="FrenchBoss" parent="YSort/Enemies" instance=ExtResource("3_s8rqv")]
 position = Vector2(170, -167)
+max_health = 3
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
