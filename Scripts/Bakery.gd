@@ -10,7 +10,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	exit_area.connect("area_entered", _exit_area_entered)
+	exit_area.connect("body_entered", _exit_area_entered)
 	enemy1.SPEED=0
 	enemy2.SPEED=0
 	enemy3.SPEED=0
@@ -28,5 +28,5 @@ func _on_dialogue_ended(_resource: DialogueResource):
 	enemy3.SPEED=200
 	player.able_to_attack=true
 
-func _exit_area_entered(area: Area2D):
+func _exit_area_entered(body):
 	get_tree().change_scene_to_file("res://Scenes/Kitchen.tscn")

@@ -64,3 +64,11 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_llh1u")
 }
+
+[node name="HPLabel" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -94.0
+offset_right = 24.0
+offset_bottom = -68.0
+text = "1 HP"
+vertical_alignment = 1

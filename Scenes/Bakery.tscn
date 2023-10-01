@@ -68,7 +68,7 @@ size = Vector2(421, 49)
 size = Vector2(111.5, 111)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y67yl"]
-size = Vector2(181, 84)
+size = Vector2(181, 113)
 
 [node name="Bakery" type="Node2D"]
 script = ExtResource("1_7hhdm")
@@ -262,7 +262,7 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
-position = Vector2(65, -819)
+position = Vector2(65, -804.5)
 shape = SubResource("RectangleShape2D_y67yl")
 
 [editable path="YSort/Enemies/MeleeEnemy2"]
