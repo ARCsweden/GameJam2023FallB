@@ -27,3 +27,8 @@ func _on_weapon_pickup_area_2d_body_entered(body):
 
 func _on_weapon_pickup_area_2d_body_exited(body):
 	$interact.visible=false 
+
+func configure_as_projectile():
+	$interact.visible=false
+	pickupable=false
+	picked_up=true
