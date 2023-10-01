@@ -13,6 +13,7 @@ func _ready():
 	exit_area.connect("body_entered", _exit_area_entered)
 	if State.entry_point == State.EntryPoint.Back:
 		player.position = back_entrance_spawn.position
+		player.able_to_attack=true
 	else:
 		# Disable movement of enemies until dialog is done
 		player.SPEED=0
