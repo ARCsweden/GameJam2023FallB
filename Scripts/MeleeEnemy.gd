@@ -42,3 +42,10 @@ func damaged():
 		
 func _kill():
 	queue_free()
+
+
+func _on_area_2d_body_entered(body):
+	print(body.name)
+	if body.is_in_group("projectiles"):
+		get_tree().call_group("projectiles", "configure_as_pickupable")
+		damaged()
