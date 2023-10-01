@@ -25,12 +25,8 @@ func _process(delta):
 		#print("got baguette!")
 		equippedweapon_sprite.set_texture(equipped_baguette)
 	#print(State.weapon) #0=nothing #2 is baguette
-	#if State.weapon==State.Weapon.Nothing: #free hands
-		#pass
-	
-		
-		
-	
+	if State.weapon==State.Weapon.Nothing: #free hands
+		equippedweapon_sprite.set_texture(null)
 
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
