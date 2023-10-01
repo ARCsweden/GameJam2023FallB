@@ -5,7 +5,7 @@ Narrator: You can see the whites of his eyes from across the room. If you want t
 
 # TODO: Read state
 
-if State.weapon == State.Weapon.Baguette and State.bakery_killed_staff
+if State.weapon == State.Weapon.Baguette and State.bakery_killed_staff:
 	Jean-Pierre: I see blood on your battle-bread. You have chosen death, then.
 	Narrator: You glance down at the sullied baguette. Little point in denying it at this point.
 	set State.killed_jean_pierre = true
