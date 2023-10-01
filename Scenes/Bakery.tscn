@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://dn84yi4ftyy4l"]
 
 [ext_resource type="Script" path="res://Scripts/Bakery.gd" id="1_7hhdm"]
-[ext_resource type="Texture2D" uid="uid://cqydixp5jp2pw" path="res://Asset/bakery.webp" id="1_54qsi"]
+[ext_resource type="Texture2D" uid="uid://qyter5erx5k5" path="res://Asset/bakery.webp" id="1_54qsi"]
 [ext_resource type="PackedScene" uid="uid://bi0mewcjm2kxg" path="res://Scenes/Player.tscn" id="1_gad1n"]
 [ext_resource type="PackedScene" uid="uid://cnlvshkf4pjh8" path="res://Scenes/MeleeEnemy.tscn" id="3_l6m37"]
 [ext_resource type="Texture2D" uid="uid://c71uokn25b1n4" path="res://Asset/frenchman2-Sheet.png" id="4_tpjpl"]

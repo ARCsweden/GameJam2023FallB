@@ -6,6 +6,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	boss.SPEED=0
 	# TODO: disable movement of enemies until dialog is done
 	var tween = get_tree().create_tween()
 	tween.tween_property(fade, "modulate", Color(1,1,1,0), 3)
@@ -19,6 +20,8 @@ func _trigger_dialog():
 func _on_dialogue_ended(_resource: DialogueResource):
 	if State.killed_jean_pierre:
 		# TODO: enable movement of enemies
+		boss.SPEED=400
+		player.able_to_attack=true
 		pass
 	else:
 		_on_boss_defeated(null)
@@ -29,4 +32,4 @@ func _on_boss_defeated(_node: Node):
 	tween.tween_callback(_trigger_next_scene)
 
 func _trigger_next_scene():
-	DialogueManager.show_example_dialogue_balloon(load("res://Dialog/betrayal.dialogue"), "alleyway")
+	get_tree().change_scene_to_file("res://Scenes/BetrayalCutscene.tscn")
