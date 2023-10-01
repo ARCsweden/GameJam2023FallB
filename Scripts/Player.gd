@@ -75,6 +75,7 @@ func _melee_attack():
 				enemy.damaged()
 
 func _throw_attack():
+	anim_player.play("attack")
 	#if not State.weapon == 0:  # Player is holding a weapon
 	var weapon_projectile_instance = weapon_projectile.instantiate()
 	var direction = get_global_position().direction_to(get_global_mouse_position())
