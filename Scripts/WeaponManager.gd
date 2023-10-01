@@ -2,9 +2,11 @@ extends RigidBody2D
 
 var picked_up = false
 var pickupable= false
+@onready var item=get_node("CollisionShape2D") # Replace with function body.
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	item.set_disabled(false)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,6 +17,8 @@ func _process(delta):
 		picked_up = true
 		#change state of weapon using global weapon
 		State.weapon=State.Weapon.Baguette
+		item.set_disabled(true) #tar bort collision
+		queue_free() #tar faktiskt bort Weapon objektet
 		
 		
 		
