@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal throw_item(player_pos)
 
-const SPEED = 1000.0
+var SPEED = 1000.0
 var max_health = 3
 var current_health = max_health
 var able_to_attack = false

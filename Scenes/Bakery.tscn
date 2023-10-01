@@ -1,11 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://dn84yi4ftyy4l"]
+[gd_scene load_steps=27 format=3 uid="uid://dn84yi4ftyy4l"]
 
 [ext_resource type="Script" path="res://Scripts/Bakery.gd" id="1_7hhdm"]
 [ext_resource type="Texture2D" uid="uid://qyter5erx5k5" path="res://Asset/bakery.webp" id="1_54qsi"]
 [ext_resource type="PackedScene" uid="uid://bi0mewcjm2kxg" path="res://Scenes/Player.tscn" id="1_gad1n"]
 [ext_resource type="PackedScene" uid="uid://cnlvshkf4pjh8" path="res://Scenes/MeleeEnemy.tscn" id="3_l6m37"]
 [ext_resource type="Texture2D" uid="uid://c71uokn25b1n4" path="res://Asset/frenchman2-Sheet.png" id="4_tpjpl"]
-[ext_resource type="PackedScene" uid="uid://bfwpbn0g1bgvg" path="res://Scenes/FrenchBoss.tscn" id="6_q543l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ell1v"]
 size = Vector2(195, 59)
@@ -99,9 +98,6 @@ root_node = NodePath("../../MeleeEnemy2")
 
 [node name="MeleeEnemy3" parent="YSort/Enemies" instance=ExtResource("3_l6m37")]
 position = Vector2(-813, -506)
-
-[node name="FrenchBoss" parent="YSort/Enemies" instance=ExtResource("6_q543l")]
-position = Vector2(928, 534)
 
 [node name="LevelCollision" type="StaticBody2D" parent="."]
 

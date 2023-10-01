@@ -11,18 +11,20 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	exit_area.connect("body_entered", _exit_area_entered)
-	enemy1.SPEED=0
-	enemy2.SPEED=0
-	enemy3.SPEED=0
 	if State.entry_point == State.EntryPoint.Back:
 		player.position = back_entrance_spawn.position
 	else:
-		# TODO: disable movement of enemies until dialog is done
+		# Disable movement of enemies until dialog is done
+		player.SPEED=0
+		enemy1.SPEED=0
+		enemy2.SPEED=0
+		enemy3.SPEED=0
 		DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 		DialogueManager.show_example_dialogue_balloon(load("res://Dialog/bakery.dialogue"), "bakery_front")
 
 func _on_dialogue_ended(_resource: DialogueResource):
-	# TODO: enable movement of enemies
+	# Enable movement of enemies
+	player.SPEED=1000
 	enemy1.SPEED=200
 	enemy2.SPEED=200
 	enemy3.SPEED=200
