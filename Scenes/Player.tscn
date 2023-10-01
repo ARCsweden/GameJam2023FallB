@@ -65,6 +65,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 17
 script = ExtResource("1_62x6f")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -91,13 +92,5 @@ root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_s0rak")
 }
-
-[node name="HP label" type="Label" parent="."]
-offset_left = -17.0
-offset_top = -97.0
-offset_right = 23.0
-offset_bottom = -71.0
-text = "3 HP"
-horizontal_alignment = 1
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

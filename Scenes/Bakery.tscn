@@ -1,11 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://dn84yi4ftyy4l"]
+[gd_scene load_steps=28 format=3 uid="uid://dn84yi4ftyy4l"]
 
 [ext_resource type="Script" path="res://Scripts/Bakery.gd" id="1_7hhdm"]
-[ext_resource type="Texture2D" uid="uid://cqydixp5jp2pw" path="res://Asset/bakery.webp" id="1_54qsi"]
+[ext_resource type="Texture2D" uid="uid://qyter5erx5k5" path="res://Asset/bakery.webp" id="1_54qsi"]
 [ext_resource type="PackedScene" uid="uid://bi0mewcjm2kxg" path="res://Scenes/Player.tscn" id="1_gad1n"]
 [ext_resource type="PackedScene" uid="uid://cnlvshkf4pjh8" path="res://Scenes/MeleeEnemy.tscn" id="3_l6m37"]
 [ext_resource type="Texture2D" uid="uid://c71uokn25b1n4" path="res://Asset/frenchman2-Sheet.png" id="4_tpjpl"]
-[ext_resource type="PackedScene" uid="uid://bxkky4h1n5006" path="res://Scenes/FrenchBoss.tscn" id="6_q543l"]
+[ext_resource type="PackedScene" uid="uid://bfwpbn0g1bgvg" path="res://Scenes/FrenchBoss.tscn" id="6_q543l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ell1v"]
 size = Vector2(195, 59)
@@ -66,6 +66,9 @@ size = Vector2(421, 49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8g21v"]
 size = Vector2(111.5, 111)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y67yl"]
+size = Vector2(181, 84)
 
 [node name="Bakery" type="Node2D"]
 script = ExtResource("1_7hhdm")
@@ -253,6 +256,14 @@ polygon = PackedVector2Array(-2, 0, -97, 53, -42, 152, 56, 97)
 
 [node name="BackEntranceSpawn" type="Marker2D" parent="."]
 position = Vector2(1033, 514)
+
+[node name="ExitArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
+position = Vector2(65, -819)
+shape = SubResource("RectangleShape2D_y67yl")
 
 [editable path="YSort/Enemies/MeleeEnemy2"]
 [editable path="YSort/Enemies/MeleeEnemy3"]
