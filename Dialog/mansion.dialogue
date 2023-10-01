@@ -1,3 +1,22 @@
+~ mansion_entry
+Narrator: Who will win the showdown?
+do State.set_bg_image.emit(State.tex_carabella)
+Narrator: The traitorous Carabella DiSpagna?
+do State.set_bg_image.emit(State.tex_don)
+Narrator: Will the Don prevail?
+do State.set_bg_image.emit(State.tex_hitman)
+Narrator: Or will you take down both of them, emerging as the new kingpin of Monaco?
+do State.set_bg_image.emit(State.tex_monaco)
+Narrator: Find out in the DLC, Monaco Hitman: Return of the Frenchmen!
+Narrator: THE END
+
+=> END
+# TODO: Implement
+if State.joined_carabella:
+	=> mansion_arrive_carabella
+else:
+	=> mansion_arrive_alone
+
 ~ mansion_arrive_carabella
 # TODO: Set up battle against Don's forces
 => END

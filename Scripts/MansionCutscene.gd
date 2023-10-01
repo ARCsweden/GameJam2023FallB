@@ -12,19 +12,16 @@ func _ready():
 
 func start_dialog():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
-	DialogueManager.show_example_dialogue_balloon(load("res://Dialog/betrayal.dialogue"), "alleyway")
+	DialogueManager.show_example_dialogue_balloon(load("res://Dialog/mansion.dialogue"), "mansion_entry")
 
 func _on_dialogue_ended(_resource: DialogueResource):
 	var tween = get_tree().create_tween()
 	tween.tween_property(fade, "modulate", Color(1, 1, 1, 1), 1)
 	# TODO: Check state, where should we go?
-	tween.tween_callback(goto_mansion)
+	tween.tween_callback(end_game)
 	
-func goto_mansion():
-	if State.ran_away:
-		get_tree().quit()
-	else:
-		get_tree().change_scene_to_file("res://Scenes/MansionCutscene.tscn")
+func end_game():
+	get_tree().quit()
 
 func set_bg_image(texture: Texture2D):
 	image.set_texture(texture)

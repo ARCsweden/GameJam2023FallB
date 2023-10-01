@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccqvum6e52vv6"]
+
+[ext_resource type="Script" path="res://Scripts/MansionCutscene.gd" id="1_sfxl0"]
+[ext_resource type="Texture2D" uid="uid://vfmwnoj6qk62" path="res://Asset/BGs/mansion.png" id="2_rouky"]
+
+[node name="MansionCutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sfxl0")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(640, 376.5)
+scale = Vector2(0.663086, 0.663086)
+texture = ExtResource("2_rouky")
+
+[node name="Fade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
