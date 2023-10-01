@@ -11,16 +11,18 @@ var equipped_baguette = preload("res://Asset/baguette.png")
 var weapon_projectile = preload("res://Scenes/weapon.tscn")
 
 @onready var sprite = $Sprite
-@onready var anim_player = $Sprite/AnimationPlayer
+@onready var anim_player = $AnimationPlayer
 @onready var equippedweapon_sprite = $Weapon/EquippedWeapon
 
-func ready():
+func _ready():
 	current_health = max_health
+	anim_player.play("idle")
+
 func _process(_delta):
 	#print(State.weapon) #0=nothing #3 is baguette
-	#if State.weapon==0: #free hands
+	#if State.weapon==State.Weapon.Nothing: #free hands
 		#pass
-	if State.weapon==3:
+	if State.weapon==State.Weapon.Baguette:
 		#print("got baguette!")
 		equippedweapon_sprite.set_texture(equipped_baguette)
 		
@@ -31,9 +33,9 @@ func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_direction * SPEED
 	if velocity.x > 0:
-		sprite.flip_h = false
+		sprite.scale.x = 1
 	elif velocity.x < 0:
-		sprite.flip_h = true
+		sprite.scale.x = -1
 		
 	# if weapons has children:
 	#if Input.is_action_pressed("ui_up"):
@@ -51,7 +53,6 @@ func get_input():
 
 func _physics_process(_delta):
 	get_input()
-	anim_player.play("idle")
 	move_and_slide()
 
 func damaged():
@@ -63,6 +64,7 @@ func _kill():
 	get_tree().reload_current_scene()
 
 func _melee_attack():
+	anim_player.play("attack")
 	# Damage all enemies in a circular area around the player
 	if $"../Enemies".get_child_count():
 		for enemy in $"../Enemies".get_children():

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be7mdd38badj2"
-path="res://.godot/imported/hitman-Sheet_idle.png-cf71073d11c092df977bc0642bb03736.ctex"
+uid="uid://budhvf0m6oovx"
+path="res://.godot/imported/hitman-Sheet.png-5799cd9500d8283e18ae7614ddd9dc4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/hitman-Sheet_idle.png"
-dest_files=["res://.godot/imported/hitman-Sheet_idle.png-cf71073d11c092df977bc0642bb03736.ctex"]
+source_file="res://Asset/hitman-Sheet.png"
+dest_files=["res://.godot/imported/hitman-Sheet.png-5799cd9500d8283e18ae7614ddd9dc4a.ctex"]
 
 [params]
 

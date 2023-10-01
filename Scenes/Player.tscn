@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi0mewcjm2kxg"]
+[gd_scene load_steps=8 format=3 uid="uid://bi0mewcjm2kxg"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_62x6f"]
-[ext_resource type="Texture2D" uid="uid://be7mdd38badj2" path="res://Asset/hitman-Sheet_idle.png" id="2_rcs3n"]
+[ext_resource type="Texture2D" uid="uid://budhvf0m6oovx" path="res://Asset/hitman-Sheet.png" id="2_07y12"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_26vqp"]
+radius = 23.0868
 
 [sub_resource type="Animation" id="Animation_qy3da"]
 resource_name = "idle"
@@ -21,26 +24,54 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_s0rak"]
-_data = {
-"idle": SubResource("Animation_qy3da")
+[sub_resource type="Animation" id="Animation_saylg"]
+resource_name = "attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 5, 6]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["idle", -1, 1.0, false],
+"method": &"play"
+}]
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_26vqp"]
-radius = 23.0868
+[sub_resource type="Animation" id="Animation_rxpuy"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s0rak"]
+_data = {
+"RESET": SubResource("Animation_rxpuy"),
+"attack": SubResource("Animation_saylg"),
+"idle": SubResource("Animation_qy3da")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_62x6f")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -22)
-texture = ExtResource("2_rcs3n")
-hframes = 4
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-libraries = {
-"": SubResource("AnimationLibrary_s0rak")
-}
+texture = ExtResource("2_07y12")
+hframes = 7
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_26vqp")
@@ -54,5 +85,11 @@ position = Vector2(60, -37)
 rotation = -0.785398
 
 [node name="AttackTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite")
+libraries = {
+"": SubResource("AnimationLibrary_s0rak")
+}
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
