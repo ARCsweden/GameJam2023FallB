@@ -7,6 +7,7 @@ var max_health = 3
 var current_health = max_health
 var able_to_attack = true
 var attack_range = 400
+var projectile_speed = 1000
 var equipped_baguette = preload("res://Asset/baguette.png")
 var weapon_projectile = preload("res://Scenes/weapon.tscn")
 
@@ -47,7 +48,7 @@ func get_input():
 			able_to_attack = false
 			$AttackTimer.start()
 			_melee_attack()
-	if Input.is_action_pressed("throw"):
+	if Input.is_action_pressed("ui_text_indent"):
 		if able_to_attack:
 			able_to_attack = false
 			$AttackTimer.start()
@@ -76,10 +77,11 @@ func _melee_attack():
 func _throw_attack():
 	#if not State.weapon == 0:  # Player is holding a weapon
 	var weapon_projectile_instance = weapon_projectile.instantiate()
-	weapon_projectile_instance.position = get_global_position()
-	weapon_projectile_instance.pickupable = false
-	weapon_projectile_instance.picked_up = true  # So thrown projectiles cannot be picked up mid-air
-	#weapon_projectile.velocity = Vector2(10, 10)
+	var direction = get_global_position().direction_to(get_global_mouse_position())
+	weapon_projectile_instance.position = get_global_position() + direction * 100
+	weapon_projectile_instance.configure_as_projectile()
+	weapon_projectile_instance.apply_impulse(direction * projectile_speed, Vector2())
+	weapon_projectile_instance.look_at(global_transform.origin + direction)
 	get_tree().get_root().call_deferred("add_child", weapon_projectile_instance)
 
 func _on_attack_timer_timeout():
