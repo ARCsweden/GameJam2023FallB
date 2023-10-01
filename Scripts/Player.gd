@@ -52,7 +52,7 @@ func draw_circle_arc(center, radius, angle_from, angle_to, color):
 		draw_line(points_arc[index_point], points_arc[index_point + 1], color)
 
 func get_input():
-	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * SPEED
 	if velocity.x > 0:
 		sprite.scale.x = 1
@@ -62,12 +62,12 @@ func get_input():
 	# if weapons has children:
 	#if Input.is_action_pressed("ui_up"):
 	#	emit_signal("throw_item", position)
-	if Input.is_action_pressed("ui_select"):
+	if Input.is_action_pressed("melee"):
 		if able_to_attack:
 			able_to_attack = false
 			$AttackTimer.start()
 			_melee_attack()
-	if Input.is_action_pressed("ui_text_indent"):
+	if Input.is_action_pressed("throw"):
 		if able_to_attack:
 			if not State.weapon == State.Weapon.Nothing:  # Player is holding a weapon
 				able_to_attack = false
