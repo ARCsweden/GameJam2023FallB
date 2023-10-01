@@ -4,18 +4,23 @@ var SPEED = 200
 @export var max_health = 1
 var current_health = max_health
 var able_to_attack = true
+var winding_up = false
 var attack_range = 200
 var weapon = preload("res://Scenes/weapon.tscn")
 var COLOR_RED = Color(1.0, 0.0, 0.0)
 var COLOR_GREEN = Color(0.0, 1.0, 0.0)
+var COLOR_YELLOW = Color(255.0, 255.0, 0.0)
 var circle_color = COLOR_RED
 
 @onready var sprite = $Sprite
 @onready var anim_player = $AnimationPlayer
 @onready var hp_label = $HPLabel
+@onready var windup_timer = $AttackWindupTimer
 
 func _draw():
-	if able_to_attack:
+	if winding_up:
+		circle_color = COLOR_YELLOW
+	elif able_to_attack:
 		circle_color = COLOR_GREEN
 	else:
 		circle_color = COLOR_RED
@@ -45,18 +50,25 @@ func _physics_process(_delta):
 	elif velocity.x < 0:
 		sprite.scale.x = -1
 	
-	if direction.length() < attack_range:  # Stops if near player and attacks
+	#if direction.length() < attack_range:  # Stops if near player and attacks
+	if is_player_in_range():
 		velocity = Vector2(0, 0)
 		if able_to_attack:
 			able_to_attack = false
-			$Timer.start()
 			_attack()
 		
 	move_and_slide()
 
-func _attack():
+func is_player_in_range():
 	var player = get_node("../../Player")
-	player.damaged()
+	var direction = player.position - position
+	if direction.length() < attack_range:
+		return true
+	return false
+
+func _attack():
+	windup_timer.start()
+	winding_up = true
 
 func _on_timer_timeout():
 	able_to_attack = true
@@ -80,3 +92,11 @@ func _on_area_2d_body_entered(body):
 		body.queue_free()
 		damaged()
 		
+
+
+func _on_attack_windup_timer_timeout():
+	if is_player_in_range():
+		var player = get_node("../../Player")
+		player.damaged()
+	winding_up = false
+	$Timer.start()
