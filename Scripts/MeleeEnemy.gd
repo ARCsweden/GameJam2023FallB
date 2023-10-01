@@ -4,6 +4,7 @@ var SPEED = 200
 var max_health = 1
 var current_health = max_health
 var able_to_attack = true
+var weapon = preload("res://Scenes/weapon.tscn")
 
 @onready var sprite = $Sprite
 @onready var anim_player = $AnimationPlayer
@@ -41,11 +42,15 @@ func damaged():
 		_kill()
 		
 func _kill():
+	# Spawn weapon on death
+	var weapon_instance = weapon.instantiate()
+	weapon_instance.position = get_global_position()
+	get_tree().get_root().call_deferred("add_child", weapon_instance)
 	queue_free()
 
 
 func _on_area_2d_body_entered(body):
-	print(body.name)
 	if body.is_in_group("projectiles"):
-		get_tree().call_group("projectiles", "configure_as_pickupable")
+		body.queue_free()
 		damaged()
+		

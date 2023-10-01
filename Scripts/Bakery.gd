@@ -3,8 +3,13 @@ extends Node2D
 @onready var player = $YSort/Player
 @onready var back_entrance_spawn = $BackEntranceSpawn
 
+@onready var enemy1 = $YSort/Enemies/MeleeEnemy
+@onready var enemy2 = $YSort/Enemies/MeleeEnemy2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	enemy1.SPEED=0
+	enemy2.SPEED=0
 	if State.entry_point == State.EntryPoint.Back:
 		player.position = back_entrance_spawn.position
 	else:
@@ -14,4 +19,6 @@ func _ready():
 
 func _on_dialogue_ended(_resource: DialogueResource):
 	# TODO: enable movement of enemies
-	pass
+	enemy1.SPEED=200
+	enemy2.SPEED=200
+	player.able_to_attack=true
