@@ -28,7 +28,7 @@ offset_left = 6.0
 offset_top = 18.0
 offset_right = 146.0
 offset_bottom = 70.0
-text = "Press 'P' to pickup"
+text = "Press 'Space' to pickup"
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_entered" from="WeaponPickupArea2D" to="." method="_on_weapon_pickup_area_2d_body_entered"]
