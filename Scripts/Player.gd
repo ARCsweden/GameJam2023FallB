@@ -20,6 +20,7 @@ func _ready():
 	anim_player.play("idle")
 
 func _process(delta):
+	queue_redraw()
 	#print(State.weapon)
 	if State.weapon==State.Weapon.Baguette:
 		#print("got baguette!")
@@ -27,6 +28,20 @@ func _process(delta):
 	#print(State.weapon) #0=nothing #2 is baguette
 	if State.weapon==State.Weapon.Nothing: #free hands
 		equippedweapon_sprite.set_texture(null)
+
+func _draw():
+	draw_circle_arc(Vector2(), attack_range, 0, 360, Color(1.0, 0.0, 0.0))
+
+func draw_circle_arc(center, radius, angle_from, angle_to, color):
+	var nb_points = 32
+	var points_arc = PackedVector2Array()
+
+	for i in range(nb_points + 1):
+		var angle_point = deg_to_rad(angle_from + i * (angle_to-angle_from) / nb_points - 90)
+		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * radius)
+
+	for index_point in range(nb_points):
+		draw_line(points_arc[index_point], points_arc[index_point + 1], color)
 
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
