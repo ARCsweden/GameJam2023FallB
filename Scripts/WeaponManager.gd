@@ -32,3 +32,10 @@ func configure_as_projectile():
 	$interact.visible=false
 	pickupable=false
 	picked_up=true
+	add_to_group("projectiles")
+	
+func configure_as_pickupable():
+	pickupable=true
+	picked_up=false
+	freeze = 1
+	rotation_degrees = 0
