@@ -8,6 +8,7 @@ var current_health = max_health
 var able_to_attack = true
 var attack_range = 400
 var equipped_baguette = preload("res://Asset/baguette.png")
+var weapon_projectile = preload("res://Scenes/weapon.tscn")
 
 @onready var sprite = $Sprite
 @onready var anim_player = $Sprite/AnimationPlayer
@@ -43,9 +44,14 @@ func get_input():
 		if able_to_attack:
 			able_to_attack = false
 			$AttackTimer.start()
-			_attack()
+			_melee_attack()
+	if Input.is_action_pressed("throw"):
+		if able_to_attack:
+			able_to_attack = false
+			$AttackTimer.start()
+			_throw_attack()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	anim_player.play("idle")
 	move_and_slide()
@@ -58,13 +64,22 @@ func damaged():
 func _kill():
 	get_tree().reload_current_scene()
 
-func _attack():
-	# Damage all enemies in range
+func _melee_attack():
+	# Damage all enemies in a circular area around the player
 	if $"../Enemies".get_child_count():
 		for enemy in $"../Enemies".get_children():
 			if (enemy.position - position).length() < attack_range:
 				enemy.damaged()
-	
+
+func _throw_attack():
+	#if not State.weapon == 0:  # Player is holding a weapon
+	var weapon_projectile_instance = weapon_projectile.instantiate()
+	weapon_projectile_instance.position = get_global_position()
+	weapon_projectile_instance.pickupable = false
+	weapon_projectile_instance.picked_up = true  # So thrown projectiles cannot be picked up mid-air
+	#weapon_projectile.velocity = Vector2(10, 10)
+	get_tree().get_root().call_deferred("add_child", weapon_projectile_instance)
+
 func _on_attack_timer_timeout():
 	able_to_attack = true
 

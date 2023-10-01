@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfwpbn0g1bgvg"]
+
+[ext_resource type="Script" path="res://Scripts/MeleeEnemy.gd" id="1_bucct"]
+[ext_resource type="Texture2D" uid="uid://deo6occdv4l2m" path="res://Asset/frechboss.png" id="1_di3dw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2dh6v"]
+radius = 47.0956
+
+[sub_resource type="Animation" id="Animation_ai14g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_v3i05"]
+resource_name = "idle"
+length = 1.2
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_llh1u"]
+_data = {
+"RESET": SubResource("Animation_ai14g"),
+"idle": SubResource("Animation_v3i05")
+}
+
+[node name="FrenchBoss" type="CharacterBody2D"]
+script = ExtResource("1_bucct")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(13, -38)
+texture = ExtResource("1_di3dw")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_2dh6v")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_llh1u")
+}

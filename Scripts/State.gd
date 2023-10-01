@@ -19,7 +19,7 @@ enum EntryPoint {
 	Back,
 }
 
-var entry_point
+var entry_point: EntryPoint = EntryPoint.Front
 
 # TODO: Set when killing one of the staff in any way
 var bakery_killed_staff = false

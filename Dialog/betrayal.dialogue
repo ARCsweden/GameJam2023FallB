@@ -3,7 +3,7 @@ Narrator: You extract yourself from the Crusty Croissant, exiting into the stree
 Narrator: You haven't gotten far when you're hailed by Carabella DiSpagna.
 Carabella: Sicario. The deed is done then?
 - Yes [State.killed_jean_pierre]
-	if State.bakery_killed_staff
+	if State.bakery_killed_staff:
 		Carabella: So you did. A bit sloppy too... who to pay the protection fee if everyone is dead, Sicario?
 		Carabella: Ah well, there's always the younger brother.
 	Narrator: Carabella looks thoughtful.
@@ -78,12 +78,12 @@ Narrator: With Carabella's goons in hot pursuit, you throw yourself into the all
 
 ~ leaving
 Narrator: You slow down. Pausing to think.
-if State.italian_ally < 0
+if State.italian_ally < 0:
 	Narrator: Carabella appears to have her own plans for the Don's demise.
-else
+else:
 	Narrator: Carabella appears to have designs for her own father's demise.
 Narrator: Undoubtedly, she would run this town with an iron fist once she was in power. Considering the way you parted, she might prove troublesome for you in the future.
-if State.killed_jean_pierre == false
+if State.killed_jean_pierre == false:
 	Narrator: There was Jean-Pierre and his brother to consider too. Did you care what became of the crazy bakers?
 - Head to the mansion
 	Narrator: You couldn't just leave things as they were.

@@ -1,8 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://dn84yi4ftyy4l"]
+[gd_scene load_steps=26 format=3 uid="uid://dn84yi4ftyy4l"]
 
-[ext_resource type="Texture2D" uid="uid://cujpx602y3k0t" path="res://Asset/bakery.webp" id="1_54qsi"]
+[ext_resource type="Script" path="res://Scenes/Bakery.gd" id="1_3naxc"]
+[ext_resource type="Texture2D" uid="uid://cqydixp5jp2pw" path="res://Asset/bakery.webp" id="1_54qsi"]
 [ext_resource type="PackedScene" uid="uid://bi0mewcjm2kxg" path="res://Scenes/Player.tscn" id="1_gad1n"]
 [ext_resource type="PackedScene" uid="uid://cnlvshkf4pjh8" path="res://Scenes/MeleeEnemy.tscn" id="3_l6m37"]
+[ext_resource type="Texture2D" uid="uid://c71uokn25b1n4" path="res://Asset/frenchman2-Sheet.png" id="4_tpjpl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ell1v"]
 size = Vector2(195, 59)
@@ -65,18 +67,34 @@ size = Vector2(421, 49)
 size = Vector2(111.5, 111)
 
 [node name="Bakery" type="Node2D"]
+script = ExtResource("1_3naxc")
 
 [node name="LevelImage" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_54qsi")
 
-[node name="Player" parent="." instance=ExtResource("1_gad1n")]
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="YSort" instance=ExtResource("1_gad1n")]
 position = Vector2(4, 731)
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="YSort"]
 
-[node name="MeleeEnemy" parent="Enemies" instance=ExtResource("3_l6m37")]
+[node name="MeleeEnemy" parent="YSort/Enemies" instance=ExtResource("3_l6m37")]
 position = Vector2(-549, 170)
+
+[node name="MeleeEnemy2" parent="YSort/Enemies" instance=ExtResource("3_l6m37")]
+position = Vector2(-297, -533)
+
+[node name="Sprite" parent="YSort/Enemies/MeleeEnemy2" index="0"]
+texture = ExtResource("4_tpjpl")
+
+[node name="AnimationPlayer" parent="YSort/Enemies/MeleeEnemy2" index="3"]
+root_node = NodePath("../../MeleeEnemy2")
+
+[node name="MeleeEnemy3" parent="YSort/Enemies" instance=ExtResource("3_l6m37")]
+position = Vector2(-813, -506)
 
 [node name="LevelCollision" type="StaticBody2D" parent="."]
 
@@ -228,3 +246,9 @@ polygon = PackedVector2Array(1, -3, 92, -91, 181, -2, 91, 87)
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="LevelCollision"]
 position = Vector2(1070, 652)
 polygon = PackedVector2Array(-2, 0, -97, 53, -42, 152, 56, 97)
+
+[node name="BackEntranceSpawn" type="Marker2D" parent="."]
+position = Vector2(1033, 514)
+
+[editable path="YSort/Enemies/MeleeEnemy2"]
+[editable path="YSort/Enemies/MeleeEnemy3"]
