@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://dvrxo84r56bn5"]
+[gd_scene load_steps=17 format=3 uid="uid://dvrxo84r56bn5"]
 
+[ext_resource type="Script" path="res://Scripts/Kitchen.gd" id="1_8tsrr"]
 [ext_resource type="Texture2D" uid="uid://ced1igucq4w6u" path="res://Asset/kiln.webp" id="1_tc5oc"]
 [ext_resource type="PackedScene" uid="uid://bi0mewcjm2kxg" path="res://Scenes/Player.tscn" id="2_aywdi"]
 [ext_resource type="PackedScene" uid="uid://bfwpbn0g1bgvg" path="res://Scenes/FrenchBoss.tscn" id="3_s8rqv"]
@@ -41,6 +42,7 @@ size = Vector2(176.5, 100.5)
 size = Vector2(102, 186)
 
 [node name="Kitchen" type="Node2D"]
+script = ExtResource("1_8tsrr")
 
 [node name="Kiln" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -132,3 +134,13 @@ shape = SubResource("RectangleShape2D_u30wg")
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-1143, -238)
 polygon = PackedVector2Array(1, 1, 181, 1, 216, 42, 182, 88, -2, 90)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

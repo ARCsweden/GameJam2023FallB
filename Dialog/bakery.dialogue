@@ -38,7 +38,7 @@ if State.weapon == State.Weapon.Baguette and State.bakery_killed_staff:
 
 Narrator: You think on how you want to approach this.
 
-- Offer sandwich [State.sandwich]
+- Offer sandwich [if State.sandwich]
 	Narrator: You hold up the plastic bag with the sandwich in.
 	Jean-Pierre: Hmm... a man of culture I see. Very well, I will break bread with you.
 	Narrator: The two of you exchange gifts of food, his hardened battle-baguette only slightly less lethal than your poisoned club. Jean-Pierre digs in.
@@ -73,12 +73,12 @@ Jean-Pierre: Be quick about it then, what do you want?
 			Jean-Pierre: This affront will not stand! When you go against them, you shall have the help of the Boulanger brothers!
 		Narrator: Jean-Pierre gets up, rushing off in a rage.
 		Narrator: You have started... something here. What, remains to be seen.
+		# Since State.killed_jean_pierre is not set, will proceed to the next scene instead of fighting him
 		=> END
-- Don DiSpagna requires your 
-# TODO on killed someone
-- I'm looking for a job. You have an opening [State.bakery_killed_staff]
+# On killed someone
+- I'm looking for a job. You have an opening [if State.bakery_killed_staff]
 	Jean-Pierre: I take no applications. What opening?
 	Narrator: A trail of blood drips under the door to the kitchen.
 	Narrator: Jean-Pierre's brows rise. He grits his teeth and comes at you in a rage!
-set State.killed_jean_pierre = true # Unlses we want to not kill him in gameplay
+set State.killed_jean_pierre = true
 => END
