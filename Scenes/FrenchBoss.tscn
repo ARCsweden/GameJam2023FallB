@@ -47,6 +47,7 @@ _data = {
 
 [node name="FrenchBoss" type="CharacterBody2D"]
 script = ExtResource("1_bucct")
+max_health = 3
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(13, -38)
@@ -72,3 +73,7 @@ offset_right = 24.0
 offset_bottom = -68.0
 text = "1 HP"
 vertical_alignment = 1
+
+[node name="AttackWindupTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
