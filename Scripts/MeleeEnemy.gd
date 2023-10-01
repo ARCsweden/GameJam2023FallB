@@ -6,12 +6,19 @@ var current_health = max_health
 var able_to_attack = true
 var attack_range = 200
 var weapon = preload("res://Scenes/weapon.tscn")
+var COLOR_RED = Color(1.0, 0.0, 0.0)
+var COLOR_GREEN = Color(0.0, 1.0, 0.0)
+var circle_color = COLOR_RED
 
 @onready var sprite = $Sprite
 @onready var anim_player = $AnimationPlayer
 
 func _draw():
-	draw_circle_arc(position-get_global_position(), attack_range, 0, 360, Color(1.0, 0.0, 0.0))
+	if able_to_attack:
+		circle_color = COLOR_GREEN
+	else:
+		circle_color = COLOR_RED
+	draw_circle_arc(position-get_global_position(), attack_range, 0, 360, circle_color)
 	
 func draw_circle_arc(center, radius, angle_from, angle_to, color):
 	var nb_points = 32
