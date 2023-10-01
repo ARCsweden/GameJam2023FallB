@@ -92,4 +92,12 @@ libraries = {
 "": SubResource("AnimationLibrary_s0rak")
 }
 
+[node name="HP label" type="Label" parent="."]
+offset_left = -17.0
+offset_top = -97.0
+offset_right = 23.0
+offset_bottom = -71.0
+text = "3 HP"
+horizontal_alignment = 1
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
