@@ -24,6 +24,11 @@ State="*res://Scripts/State.gd"
 
 general/wrap_lines=true
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=768
+
 [dotnet]
 
 project/assembly_name="Hitman"
