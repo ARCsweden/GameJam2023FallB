@@ -69,9 +69,10 @@ func get_input():
 			_melee_attack()
 	if Input.is_action_pressed("ui_text_indent"):
 		if able_to_attack:
-			able_to_attack = false
-			$AttackTimer.start()
-			_throw_attack()
+			if not State.weapon == State.Weapon.Nothing:  # Player is holding a weapon
+				able_to_attack = false
+				$AttackTimer.start()
+				_throw_attack()
 
 func _physics_process(_delta):
 	get_input()
@@ -94,16 +95,15 @@ func _melee_attack():
 				enemy.damaged()
 
 func _throw_attack():
-	if not State.weapon == State.Weapon.Nothing:  # Player is holding a weapon
-		State.weapon = State.Weapon.Nothing
-		anim_player.play("attack")
-		var weapon_projectile_instance = weapon_projectile.instantiate()
-		var direction = get_global_position().direction_to(get_global_mouse_position())
-		weapon_projectile_instance.position = get_global_position() + direction * 100
-		weapon_projectile_instance.configure_as_projectile()
-		weapon_projectile_instance.apply_impulse(direction * projectile_speed, Vector2())
-		weapon_projectile_instance.look_at(global_transform.origin + direction)
-		get_tree().get_root().call_deferred("add_child", weapon_projectile_instance)
+	State.weapon = State.Weapon.Nothing
+	anim_player.play("attack")
+	var weapon_projectile_instance = weapon_projectile.instantiate()
+	var direction = get_global_position().direction_to(get_global_mouse_position())
+	weapon_projectile_instance.position = get_global_position() + direction * 100
+	weapon_projectile_instance.configure_as_projectile()
+	weapon_projectile_instance.apply_impulse(direction * projectile_speed, Vector2())
+	weapon_projectile_instance.look_at(global_transform.origin + direction)
+	get_tree().get_root().call_deferred("add_child", weapon_projectile_instance)
 
 func _on_attack_timer_timeout():
 	able_to_attack = true

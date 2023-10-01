@@ -10,7 +10,6 @@ size = Vector2(89.8026, 20)
 size = Vector2(118.971, 79.5495)
 
 [node name="Weapon" type="RigidBody2D"]
-mass = 0.01
 script = ExtResource("1_24uoy")
 
 [node name="WeaponSprite2D" type="Sprite2D" parent="."]
@@ -18,7 +17,6 @@ texture = ExtResource("2_rchdp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_oe4eu")
-debug_color = Color(0.984314, 0, 0.34902, 0.419608)
 
 [node name="WeaponPickupArea2D" type="Area2D" parent="."]
 
@@ -32,5 +30,6 @@ offset_right = 146.0
 offset_bottom = 70.0
 text = "Press 'P' to pickup"
 
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_entered" from="WeaponPickupArea2D" to="." method="_on_weapon_pickup_area_2d_body_entered"]
 [connection signal="body_exited" from="WeaponPickupArea2D" to="." method="_on_weapon_pickup_area_2d_body_exited"]

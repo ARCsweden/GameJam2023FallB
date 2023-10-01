@@ -12,6 +12,7 @@ var circle_color = COLOR_RED
 
 @onready var sprite = $Sprite
 @onready var anim_player = $AnimationPlayer
+@onready var hp_label = $HPLabel
 
 func _draw():
 	if able_to_attack:
@@ -30,10 +31,10 @@ func draw_circle_arc(center, radius, angle_from, angle_to, color):
 
 	for index_point in range(nb_points):
 		draw_line(points_arc[index_point], points_arc[index_point + 1], color)
-		
 
 func _physics_process(_delta):
 	queue_redraw()
+	#hp_label.text = str(current_health) + " HP"
 	# MeleeEnemy constantly moves towards the Player and attempts to attack them
 	var player = get_node("../../Player")
 	var direction = player.position - position
