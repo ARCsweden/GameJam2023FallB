@@ -86,6 +86,7 @@ position = Vector2(60, -37)
 rotation = -0.785398
 
 [node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")

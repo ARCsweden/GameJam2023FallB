@@ -67,6 +67,7 @@ func damaged():
 		_kill()
 		
 func _kill():
+	State.bakery_killed_staff = true
 	# Spawn weapon on death
 	var weapon_instance = weapon.instantiate()
 	weapon_instance.position = get_global_position()
