@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfwpbn0g1bgvg"]
+[gd_scene load_steps=8 format=3 uid="uid://b4v1xyfkg81n7"]
 
 [ext_resource type="Script" path="res://Scripts/MeleeEnemy.gd" id="1_bucct"]
 [ext_resource type="Texture2D" uid="uid://deo6occdv4l2m" path="res://Asset/frechboss.png" id="1_di3dw"]
@@ -45,6 +45,9 @@ _data = {
 "idle": SubResource("Animation_v3i05")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ucjy2"]
+radius = 77.026
+
 [node name="FrenchBoss" type="CharacterBody2D"]
 script = ExtResource("1_bucct")
 
@@ -66,9 +69,17 @@ libraries = {
 }
 
 [node name="HPLabel" type="Label" parent="."]
-offset_left = -16.0
-offset_top = -94.0
-offset_right = 24.0
-offset_bottom = -68.0
+offset_left = -14.0
+offset_top = -121.0
+offset_right = 26.0
+offset_bottom = -95.0
 text = "1 HP"
 vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -16)
+shape = SubResource("CircleShape2D_ucjy2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
