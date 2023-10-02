@@ -28,6 +28,7 @@ general/wrap_lines=true
 
 window/size/viewport_width=1280
 window/size/viewport_height=768
+window/stretch/mode="viewport"
 
 [dotnet]
 
